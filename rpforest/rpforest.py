@@ -42,8 +42,7 @@ class RPForest(object):
 
     def _is_constructed(self):
 
-        return (self.dim is not None
-                and self.trees)
+        return (self.dim is not None and self.trees)
 
     def _has_vectors(self):
 
@@ -130,7 +129,7 @@ class RPForest(object):
         and sorting by cosine similarity with x.
 
         Vectors for each point must be available.
-        
+
         At most no_trees * leaf_size NNs will can be returned.
 
         Arguments:

@@ -8,6 +8,7 @@
 - added tox to be able to run locally and CircleCI
 - updated README with working images
 - refactored setup.py so that numpy is not required to be installed when running `setup.py` commands
+- fixed some flake8 issues
 
 ## [1.5][2020-01-28]
 

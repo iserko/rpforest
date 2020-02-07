@@ -260,8 +260,6 @@ def test_load_v1_model():
 
     X_train, X_test = _get_mnist_data(seed=10)
 
-    expected_precision = 0.9
-
     nodes = {k: set(v) for k, v in tree.get_leaf_nodes()}
     for i, x_train in enumerate(X_train):
         nns = tree.query(x_train, 10)[:10]
