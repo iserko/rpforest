@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.6b1][2020-02-07]
+## [1.6][2020-02-07]
 
 ### Changed
 
@@ -11,6 +11,7 @@
 - fixed some flake8 issues
 - black-ified coode
 - fixed tests code to support py35+
+- updated cpp library with the latest cython 0.29.14 (previously 0.23.4)
 
 ## [1.5][2020-01-28]
 
@@ -31,7 +32,7 @@
 
 - all interior nodes of a tree at a given depth now share their hyperplane. This drastically reduces the memory footprint
   of the tree without affecting the guarantees of the data structure (which relies on the hyperplanes being independently drawn
-  _ between_ the trees in the forest
+  _between_ the trees in the forest
 - this changes the structure of the model pickles, but pickles of older versions should continue to deserialize correctly
 
 ## [1.2][2016-01-06]
