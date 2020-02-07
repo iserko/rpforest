@@ -10,6 +10,7 @@
 - refactored setup.py so that numpy is not required to be installed when running `setup.py` commands
 - fixed some flake8 issues
 - black-ified coode
+- fixed tests code to support py35+
 
 ## [1.5][2020-01-28]
 

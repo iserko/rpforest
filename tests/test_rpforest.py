@@ -1,4 +1,5 @@
-import cPickle as pickle
+import six
+from six.moves import cPickle as pickle
 import os
 
 import numpy as np
@@ -193,7 +194,8 @@ def test_sample_training():
 
         tree = RPForest(leaf_size=10, no_trees=no_trees)
         # Fit on quarter of data
-        X_sample = X_train[: X_train.shape[0] / 4]
+        slice_size = int(X_train.shape[0] / 4)
+        X_sample = X_train[:slice_size]
         tree.fit(X_sample)
         # Clear and index everything
         tree.clear()
@@ -236,7 +238,13 @@ def test_load_v1_model():
     path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "rpforest_v1.pickle")
 
     with open(path, "rb") as fl:
-        tree = pickle.loads(fl.read())
+        data = fl.read()
+        if six.PY2:
+            tree = pickle.loads(data)
+        elif six.PY3:
+            tree = pickle.loads(data, encoding="iso-8859-1")
+        else:
+            assert False
 
     X_train, X_test = _get_mnist_data(seed=10)
 
